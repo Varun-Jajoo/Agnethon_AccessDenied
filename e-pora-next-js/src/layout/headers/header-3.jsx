@@ -19,7 +19,7 @@ const HeaderThree = () => {
 
   return (
     <>
-      <header className="header__transparent">
+      <header className="header__transparent ">
         <div className="header__area">
           <div
             className={`main-header third-header header-xy-spacing ${sticky ? "header-sticky" : ""}`}
@@ -31,7 +31,7 @@ const HeaderThree = () => {
                   <div className="logo-area d-flex align-items-center">
                     <div className="logo">
                       <Link href="/">
-                        <img src="/assets/img/logo/logo-black.png" alt="logo" />
+                        <img src="" alt="logo" />{/**add logo image here */}
                       </Link>
                     </div>
                     <div className="header-cat-menu ml-40 d-none d-md-block">
@@ -71,11 +71,7 @@ const HeaderThree = () => {
                             <i className="fi fi-rr-user"></i>
                           </Link>
                         </li>
-                        <li>
-                          <Link href="/cart" className="d-none d-md-block">
-                            <i className="	 fi fi-rr-shopping-bag"></i>
-                          </Link>
-                        </li>
+                        
                         <li>
                           <a href="#" onClick={() => setIsActive(true)} className="tp-menu-toggle d-xl-none">
                             <i className="icon_ul"></i>

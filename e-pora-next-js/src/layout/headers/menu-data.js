@@ -1,24 +1,24 @@
 const menu_data = [
   {
     id: 1,
-    title: "Home",
+    title: "Dashboard",
     link: "/",
     has_dropdown: true,
     sub_menus: [
-      { link: "/", title: "Home Style 1" },
-      { link: "/home-2", title: "Home Style 2" },
-      { link: "/home-3", title: "Home Style 3" },
+      { link: "/", title: "Admin Dashboard" },//home-3
+    
+     
     ],
   },
   {
     id: 2,
-    title: "Pages",
+    title: "About Us",
     link: "/about",
     has_dropdown: true,
     sub_menus: [
       { link: "/about", title: "About" },
       { link: "/contact", title: "Contact" },
-      { link: "/check-out", title: "Check Out" },
+      
       { link: "/faq", title: "FAQ" },
       { link: "/register", title: "Register" },
       { link: "/sign-in", title: "Sign In" },
@@ -47,7 +47,7 @@ const menu_data = [
   },
   {
     id: 5,
-    title: "Blog",
+    title: "Zoom",
     link: "/blog",
     has_dropdown: true,
     sub_menus: [
@@ -55,6 +55,17 @@ const menu_data = [
       { link: "/blog-grid", title: "Blog Grid" },
       { link: "/blog-masonry", title: "Blog Masonry" },
       { link: "/blog-details", title: "Blog Details" },
+    ],
+  },
+  
+  {
+    id: 5,
+    title: "Time Table",
+    link: "/blog",
+    has_dropdown: true,
+    sub_menus: [
+      { link: "/schedule", title: "Schedule" },
+ 
     ],
   },
   

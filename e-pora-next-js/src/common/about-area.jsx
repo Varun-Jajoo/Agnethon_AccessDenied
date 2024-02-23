@@ -7,9 +7,9 @@ const about_info = {
     students: "235K",
     review: "4.7",
     pro_courses: "3.5K",
-    title: 'Explore Thousands of Creative Classes.',
-    des: <> Dramatically supply transparent deliverables befoe backward
-    comp internal or "organic" sources.</>
+    title: 'Discover the simplicity of online learning.',
+    des: <>  
+    Ensuring convenience at every step with an easily accessible and user-friendly experience.</>
 }
 
 
@@ -17,13 +17,13 @@ const  { students, review, pro_courses, title, des} = about_info
 
 const about_list_data = [
   {
-    name: "Create an E-Pora account",
+    name: "Create an account",
   },
   {
-    name: "Choose Your Perfect Courses",
+    name: "Select Your Age Group",
   },
   {
-    name: "After Finished Courses, Get Certificate",
+    name: "Join Scheduled Classes with Personalized Zoom Link",
   },
 ];
 const AboutArea = ({style_about}) => {
@@ -92,7 +92,7 @@ const AboutArea = ({style_about}) => {
                 </div>
                 <div className="tp-about-btn-3">
                   <Link href="/about" className="tp-btn">
-                    Explore Courses
+                    Get Started
                   </Link>
                 </div>
               </div>

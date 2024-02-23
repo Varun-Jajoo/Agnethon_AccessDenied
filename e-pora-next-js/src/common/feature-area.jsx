@@ -8,15 +8,15 @@ const feature_data_3 = [
   },
   {
     icon: "fi fi-rr-user",
-    title: "Expert Trainer",
+    title: "Attendance Tracker",
   },
   {
     icon: "fi fi-rr-document",
-    title: "Get Certificate",
+    title: "Interactive Quiz",
   },
   {
     icon: "fi fi-rr-calendar",
-    title: "Life Time Access",
+    title: "Filtering Classes",
   },
 ];
 const FeatureArea = ({ style_about }) => {
@@ -36,7 +36,7 @@ const FeatureArea = ({ style_about }) => {
                 <div className="section-title mb-70">
                   <span className="tp-bline-stitle mb-15">What We Offer</span>
                   <h2 className="tp-section-title">
-                    For Your Future Learning.
+                    For Your Personalised Learning Experience.
                   </h2>
                 </div>
               </div>

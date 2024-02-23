@@ -15,6 +15,7 @@ const CategoryArea = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="section-title mb-70">
+                <h2>(Might be useful)</h2>
                 <span className="tp-bline-stitle mb-15">Top Categories</span>
                 <h2 className="tp-section-title">Explore Company Courses</h2>
               </div>

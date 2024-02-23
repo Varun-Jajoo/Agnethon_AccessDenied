@@ -19,7 +19,7 @@ const BannerArea = () => {
                   </h2>
                   <div className="hero-btn">
                     <Link href="/course-list" className="tp-btn">
-                      All Courses
+                      Get Started
                     </Link>
                   </div>
                 </div>

@@ -4,9 +4,9 @@ import React from "react";
 // choose data 
 const choose_data = {
 title: "Why Choose Us",
-sub_title: "Why You Choose Our E-Pora Online learning",
-des: <>Dramatically supply transparent deliverables before & you
-backward comp internal or "organic" sources.</>,
+sub_title: "Why Choose Our Virtual Learning Experience",
+des: <>Empower yourself with the convenience of online learning,
+tailored to your needs and designed to make online education  enjoyable.</>,
   experiences_years: "23",
 
 
@@ -22,7 +22,7 @@ const choose_list_data = [
     list: "High Quality Video  & Audio Classes",
   },
   {
-    list: "Finish Your Course, Get Certificate",
+    list: "Optimised Scheduling of Classes",
   },
 ];
 const ChooseArea = ({style_about, style_2}) => {

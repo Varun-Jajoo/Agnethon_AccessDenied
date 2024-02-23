@@ -1,4 +1,4 @@
-import BrandArea from "@/src/common/brand-area";
+
 import SuitableArea from "@/src/common/suitable-area";
 import React from "react";
 import VideoArea from "../../../common/video-area";
@@ -24,7 +24,7 @@ const HomeThree = () => {
       <OurCourse />
       <ChooseArea />
       <TestimonialArea />
-      <BrandArea style_3={true} />
+      
       <BlogArea />
       <CounterArea style_3={true} />
     </>

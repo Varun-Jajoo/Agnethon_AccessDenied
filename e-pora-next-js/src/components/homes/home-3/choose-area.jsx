@@ -8,8 +8,8 @@ const choose_data_3 = [
     title: "Increasing Your Learning Skills",
     des: (
       <>
-        Holisticly parallel task diverse architectures after top-line
-        applications. Competently facilitate end.
+        Boosting Your Learning Proficiency with Interactive Lectures,
+          Courses, and Engaging Quizzes
       </>
     ),
   },
@@ -18,18 +18,18 @@ const choose_data_3 = [
     title: "High Quality Video & Audio Classes",
     des: (
       <>
-        Holisticly parallel task diverse architectures after top-line
-        applications. Competently facilitate end.
+        Experience high-definition video and crystal-clear audio in our live classes,
+         ensuring an immersive and engaging learning environment.
       </>
     ),
   },
   {
     id: 3,
-    title: "Finish Your Course, Get Certificate",
+    title: "Optimised Scheduling of Classes",
     des: (
       <>
-        Holisticly parallel task diverse architectures after top-line
-        applications. Competently facilitate end.
+        Efficiently organize classes to maximize 
+        learning opportunities and ensure academic progress.
       </>
     ),
   },
@@ -37,9 +37,9 @@ const choose_data_3 = [
 
 // choose top data 
 const choose_top_data = {
-    title: "Why You Choose Our E-Pora Online learning",
-    des: <> Competently facilitate end-to-end testing procedure before
-    customized applications. Interactively coordinate scalable.</>
+    title: "Why Choose Our Virtual Learning Experience?",
+    des: <> Empower yourself with the convenience of online learning,
+     tailored to your needs and designed to make online education  enjoyable.</>
 }
 
 const { title , des} = choose_top_data

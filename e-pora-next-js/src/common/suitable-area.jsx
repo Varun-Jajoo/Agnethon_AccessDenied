@@ -10,17 +10,17 @@ const suitable_data = [
         Do you want to <span>Learn</span> here?
       </>
     ),
-    des: <>Dramatically supply transpa deliverables before & you.</>,
+    des: <>Join the student portal and engage in the best learning experience.</>,
     img: "/assets/img/bg/suit-bg-01.png",
   },
   {
     id: 2,
     title: (
       <>
-        Do you want to <span>Learn</span> here?
+        Do you want to <span>Teach</span> here?
       </>
     ),
-    des: <>Dramatically supply transpa deliverables before & you.</>,
+    des: <>Join teacher portal, unlock a realm of innovative teaching experiences.</>,
     img: "/assets/img/bg/suit-bg-02.png",
   },
 ];
@@ -46,7 +46,7 @@ const SuitableArea = ({ style_2}) => {
               <div className="section-title mb-60">
                 <span className="tp-sub-title mb-25">Join With Us</span>
                 <h2 className="tp-section-title">
-                  Which One is Suitable For You?
+                  Select Your Role
                 </h2>
               </div>
             </div>

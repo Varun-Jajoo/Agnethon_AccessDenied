@@ -12,9 +12,8 @@ const testimonial_data_3 = [
      title: "President of Sales",
      des: (
        <>
-         Phosfluorescently aggregate bleeding-edge channels rather than global
-         mindshare. Monotonectally enable enterprise wide strategic theme areas
-         for worldwide initiatives.
+          The streamlined attendance tracking feature has simplified my workload, 
+         allowing me to focus more on teaching and less on paperwork.
        </>
      ),
    },
@@ -27,9 +26,8 @@ const testimonial_data_3 = [
      title: "Marketing Coordinator",
      des: (
        <>
-         Phosfluorescently aggregate bleeding-edge channels rather than global
-         mindshare. Monotonectally enable enterprise wide strategic theme areas
-         for worldwide initiatives.
+         Wow, I'm blown away by how effective this website is for managing my classes!
+         The Optimised Scheduling feature has saved me so much time
        </>
      ),
    },
@@ -41,10 +39,8 @@ const testimonial_data_3 = [
      img_about: "/assets/img/icon/testi-ava-sub-2.png",
      title: "UX/UI Designer",
      des: (
-       <>
-         Phosfluorescently aggregate bleeding-edge channels rather than global
-         mindshare. Monotonectally enable enterprise wide strategic theme areas
-         for worldwide initiatives.
+       <>This platform's interactive quizzes and Zoom integration have revolutionized my learning. 
+       Highly recommended for an immersive learning experience
        </>
      ),
    },
