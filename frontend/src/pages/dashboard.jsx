@@ -1,6 +1,7 @@
 import React from "react";
 import SEO from "../common/seo";
 import WrapperFour from "../layout/wrapper-4";
+import { useEffect, useState } from "react";
 import Dashboard from "../components/dashboard/dashboard";
 // import { ChakraProvider,extendTheme ,Box,} from "@chakra-ui/react";
 
@@ -41,7 +42,6 @@ const index = () => {
     <WrapperFour>
       <SEO pageTitle={"Meet"} />
       <Dashboard data={jsonData} />
-
     </WrapperFour>
   );
 };
