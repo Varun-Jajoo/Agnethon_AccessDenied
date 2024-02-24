@@ -162,3 +162,74 @@ margin-top: 150px;
       .lesson-child input {
         height: 30px;
       }
+
+      .aicourse-main {
+        font-size: 2.9rem;
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+        text-align: center;
+        margin-top: -100px;
+      }
+      
+      .aicourse-info{
+          background-color: lightgray;
+          width: 100%;
+          margin: 0 auto;
+          padding: 15px;
+          border-radius: 10px;
+          font-size: 20px;
+      }
+
+      /* .aicourse-inputarea{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin: 10px auto;
+      } */
+      
+      .aicourse-input-title {
+        margin-top: 2rem;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      
+      .aicourse-button {
+        width: 130px;
+        margin: 0.5rem 1.25rem;
+        height: auto;
+        color: white;
+        font-weight: 500;
+      }
+      
+      .aivideo-main {
+        display: flex;
+        flex-direction: row;
+        padding: 2rem;
+        padding-top: 1rem;
+        /* align-items: center; */
+        justify-content: space-between;
+      }
+      
+      .aivideo-contents {
+        /* width: 350px;
+        padding: 25px; */
+        flex: 0.3;
+      }
+      
+      .li-selected {
+        color: green;
+        cursor: pointer;
+      }
+      
+      .aivideo-video {
+        /* padding: 25px; */
+        padding-top: 1rem;
+        flex: 1;
+      }
+      .aivideo-ques {
+        /* padding: 25px; */
+        flex: 1;
+      }
+      
