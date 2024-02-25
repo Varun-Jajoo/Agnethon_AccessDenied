@@ -27,9 +27,27 @@ export default function LinkGenerator() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleGenerateLink = () => {
+  async function getDataFromEndpoint() {
+    try {
+        // Replace 'your_endpoint_url' with the actual endpoint URL
+        const response = await axios.get('your_endpoint_url');
+        console.log('Data from endpoint:', response.data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+  const handleGenerateLink =async () => {
     // Logic to generate link using formData
     console.log("Generating link with data:", formData);
+
+    //Make get request to an endpoint
+    try {
+      const response = await axios.get("http://localhost:3005/createmeeting", formData);
+      console.log(response)
+    }
+    catch (error) {
+      console.error("Error:", error);
+    }
     // Reset form data if needed
     setFormData({
       startTime: "",
@@ -40,7 +58,25 @@ export default function LinkGenerator() {
     // Close the modal
     onClose();
   };
+  
 
+  async function getDataWithMeetingObject() {
+    const meetingObject = {
+        "topic": "Meeting 100",
+        "start_time": new Date().toISOString(), // Set start time to current time
+        "type": 2,
+        "duration": 60,
+        "timezone": "Asia/Kolkata",
+        "agenda": "Project updates"
+    };
+    
+    try {
+        const response = await axios.get('http://localhost:3005/createmeeting', meetingObject);
+        console.log('Data from endpoint:', response.data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
   return (
     <>
       <Button onClick={onOpen}>Schedule New Class</Button>
