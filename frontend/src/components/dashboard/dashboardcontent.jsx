@@ -40,70 +40,92 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import LinkGenerator from "./meetcreation";
-
+import MiniCalendar from "./calender";
 const data = [
   {
-    name: "Mon",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: 'Mon',
+    'Last-week': 20,
+    'This-week': 12,
+    amt: 12,
   },
   {
-    name: "Tues",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: 'Tues',
+    'Last-week': 15,
+    'This-week': 8,
+    amt: 10,
   },
   {
-    name: "Wed",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: 'Wed',
+    'Last-week': 10,
+    'This-week': 55,
+    amt: 11,
   },
   {
-    name: "Thurs",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: 'Thurs',
+    'Last-week': 14,
+    'This-week': 20,
+    amt: 10,
   },
   {
-    name: "Fri",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: 'Fri',
+    'Last-week': 9,
+    'This-week': 25,
+    amt: 11,
   },
   {
-    name: "Sat",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: 'Sat',
+    'Last-week': 12,
+    'This-week': 20,
+    amt: 13,
   },
   {
-    name: "Sun",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: 'Sun',
+    'Last-week': 18,
+    'This-week': 22,
+    amt: 11,
   },
 ];
-
-const NextClassCard = ({ timeLeft }) => {
+const NextClassCard = ({ timeLeft="00:00:00", title="Class Title" }) => {
   return (
     <Card borderRadius="lg" overflow="hidden" boxShadow="md" p="4" bg="white">
-      <Text fontSize="xl" fontWeight="semibold" mb="4" color="black">
-        Next Class In...
-      </Text>
+     <Button leftIcon={<PiStarFourFill  color='#FF6652' />} variant={""}
+     size={"xl"}
+      fontSize="xl" fontWeight="semibold" mb="4" color="black"
+      alignSelf="left"
+      >Next Class In...</Button>
+     
+     
+     <Button
+    variant="outline"
+    borderColor="#FF6652"
+    color="#FF6652"
+    backgroundColor="#FFD8BF"
+    _hover={{ backgroundColor: '#FFBFA7' }}
+    fontWeight="bold"
+    fontSize="14px"
+    borderRadius="20px"
+    px="16px"
+    py="8px"
+    my="10px"
+  >
+   In 16 Days
+  </Button>
       <Button
         colorScheme="green"
         variant={"outline"}
         rounded={"full"}
         borderWidth="2px"
       >
+
         <Text color="teal.500" m="2" fontWeight="semibold">
           {timeLeft}
         </Text>
         <Divider my="2" />
         <Text></Text>
       </Button>
+      <Text fontWeight="semibold" fontSize="lg" color="black">29 Jan | 37$ </Text>
+      <Text fontWeight="semibold" fontSize="m"  >In order to have access to your account please pay your monthy fee </Text>
+      <Button rightIcon={<FaChevronRight color={"#245D51"} />} variant={""} alignSelf={'right'} color= {"#245D51"}> View all</Button>
     </Card>
   );
 };
@@ -191,6 +213,7 @@ export default function dashboardContent() {
               <Button
                 leftIcon={<PiStarFourFill color="#FF6652" />}
                 variant={""}
+                size={"xl"}
               >
                 {" "}
                 Ongoing Courses
@@ -210,21 +233,27 @@ export default function dashboardContent() {
             <Divider my={2} />
 
             <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-              <GridItem w="100%"  bg="blue.500">
-                <Box bg="white" borderRadius={10} padding={1}>
+              <GridItem
+                w="100%"
+                border={"1px"}
+                borderColor={"gray.200"}
+                borderRadius={2}
+                p={4}
+              >
+                <Box bg="white" borderRadius={10}>
                   <Button
                     leftIcon={<FaPaintBrush color={color1} />}
                     variant={""}
                   >
                     UI/UX Interface design
                   </Button>
-                  <Text fontSize={10} p={0} m={0}>
+                  <Text fontSize={10}>
                     Module - User Experience Research (UX Research){" "}
                   </Text>
                   <Progress
                     value={35}
                     colorScheme="red"
-                    height={2}
+                    size={"sm"}
                     borderRadius={10}
                   />
                   <Text fontSize={8}>You've learnt 4 modules from 14</Text>
@@ -233,44 +262,75 @@ export default function dashboardContent() {
                   </Button>
                 </Box>
               </GridItem>
-              <GridItem w="100%" bg="blue.500">
-                <Box bg="white" borderRadius={10} padding={1}>
+
+              <GridItem
+                w="100%"
+                border={"1px"}
+                borderColor={"gray.200"}
+                borderRadius={2}
+                p={4}
+              >
+                <Box bg="white" borderRadius={10}>
                   <Button
                     leftIcon={<FaPaintBrush color={color1} />}
                     variant={""}
                   >
                     UI/UX Interface design
                   </Button>
-                  <Text fontSize={10} p={0} m={0}>
-                    Mondule - User Experience Research (UX Research){" "}
+                  <Text fontSize={10}>
+                    Module - User Experience Research (UX Research){" "}
                   </Text>
                   <Progress
-                    value={80}
+                    value={35}
                     colorScheme="red"
+                    size={"sm"}
                     borderRadius={10}
-                    height={2}
                   />
-                  <Text fontSize={8}>You've learnt 10 modules from 14</Text>
-                  <Button
-                    bgColor={color1}
-                    marginTop={0}
-                    marginLeft={5}
-                    color={"white"}
-                  >
-                    {" "}
+                  <Text fontSize={8}>You've learnt 4 modules from 14</Text>
+                  <Button bgColor={color1} color={"white"} width={"full"}>
                     Continue to study
                   </Button>
                 </Box>
               </GridItem>
+
+              <GridItem
+                w="100%"
+                border={"1px"}
+                borderColor={"gray.200"}
+                borderRadius={2}
+                p={4}
+              >
+                <Box bg="white" borderRadius={10}>
+                  <Button
+                    leftIcon={<FaPaintBrush color={color1} />}
+                    variant={""}
+                  >
+                    UI/UX Interface design
+                  </Button>
+                  <Text fontSize={10}>
+                    Module - User Experience Research (UX Research){" "}
+                  </Text>
+                  <Progress
+                    value={35}
+                    colorScheme="red"
+                    size={"sm"}
+                    borderRadius={10}
+                  />
+                  <Text fontSize={8}>You've learnt 4 modules from 14</Text>
+                  <Button bgColor={color1} color={"white"} width={"full"}>
+                    Continue to study
+                  </Button>
+                </Box>
+              </GridItem>
+
             </Grid>
-            
           </Box>
         </GridItem>
-        <GridItem w="100%" colSpan={1}>
+        <GridItem w="100%" colSpan={1} height={"100%"}>
           <NextClassCard timeLeft="5 minutes" />
         </GridItem>
         <GridItem w="100%" colSpan={3}>
-          <Box bg="whitesmoke" borderRadius={10} padding={10}>
+          <Box bg="white" borderRadius={10} padding={10} boxShadow="2xl" height="400px" >
             <Button leftIcon={<PiStarFourFill color="#FF6652" />} variant={""}>
               Average Attendance
             </Button>
@@ -292,11 +352,11 @@ export default function dashboardContent() {
                 <Legend />
                 <Line
                   type="monotone"
-                  dataKey="pv"
+                  dataKey="Last-week"
                   stroke="#FF6652"
                   activeDot={{ r: 8 }}
                 />
-                <Line type="monotone" dataKey="uv" stroke="#245D51" />
+                <Line type="monotone" dataKey="This-week" stroke="#245D51" />
               </LineChart>
             </ResponsiveContainer>
           </Box>
@@ -327,6 +387,9 @@ export default function dashboardContent() {
               </Grid>
             </div>
           )}
+        </GridItem>
+        <GridItem w="100%" colSpan={3}>
+          <MiniCalendar/>
         </GridItem>
       </Grid>
     </Box>
