@@ -8,7 +8,7 @@ const cors = require("cors");
 app.use(cors());
 
 const port = 3005;
-var token;
+var token='eyJzdiI6IjAwMDAwMSIsImFsZyI6IkhTNTEyIiwidiI6IjIuMCIsImtpZCI6IjM2ODg4OWU1LTUyM2UtNDE1MS05MWY1LTM5YThhZGUxYjdjYyJ9.eyJ2ZXIiOjksImF1aWQiOiIwODVjZTU2MDZlNTZkNjJiZGUwNTRiOWFhNTlhMTZjNCIsImNvZGUiOiJOQVA3aWFTbHJ3M2FwcHNRLWluUU9pVlFxRVpzTWNaYWciLCJpc3MiOiJ6bTpjaWQ6d1dmakFYWXlTb0s4TEdfQ2J3RWhnZyIsImdubyI6MCwidHlwZSI6MCwidGlkIjowLCJhdWQiOiJodHRwczovL29hdXRoLnpvb20udXMiLCJ1aWQiOiJqTm02M3BMZlF4eVNsYzFfSVh6MEh3IiwibmJmIjoxNzA4NzEyNzE0LCJleHAiOjE3MDg3MTYzMTQsImlhdCI6MTcwODcxMjcxNCwiYWlkIjoiM2NSSDd4V01RbkdSclJNb1dYZUdIUSJ9.qVH9H4GbhsYEe4bhiFvdVYafbVMWVZov6gYlx1OVLl1tMjsNrEWvN6Gk2vjoOtr20IhKo8o4PkudzsCFJ56wMw';
 
 async function getMeetings() {
   try {
@@ -50,7 +50,7 @@ async function createMeeting(
           participant_video: true,
           join_before_host: false,
           mute_upon_entry: true,
-          watermark: false,
+          watermark: false, 
           use_pmi: false,
           approval_type: 0,
           audio: "both",
@@ -81,7 +81,7 @@ app.get("/", async (req, res) => {
       },
       headers: {
         Authorization: `Basic ${Buffer.from(
-          `${process.env.ZOOM_API_KEY}:${process.env.ZOOM_API_SECRET}`
+          `eyJzdiI6IjAwMDAwMSIsImFsZyI6IkhTNTEyIiwidiI6IjIuMCIsImtpZCI6IjM2ODg4OWU1LTUyM2UtNDE1MS05MWY1LTM5YThhZGUxYjdjYyJ9.eyJ2ZXIiOjksImF1aWQiOiIwODVjZTU2MDZlNTZkNjJiZGUwNTRiOWFhNTlhMTZjNCIsImNvZGUiOiJOQVA3aWFTbHJ3M2FwcHNRLWluUU9pVlFxRVpzTWNaYWciLCJpc3MiOiJ6bTpjaWQ6d1dmakFYWXlTb0s4TEdfQ2J3RWhnZyIsImdubyI6MCwidHlwZSI6MCwidGlkIjowLCJhdWQiOiJodHRwczovL29hdXRoLnpvb20udXMiLCJ1aWQiOiJqTm02M3BMZlF4eVNsYzFfSVh6MEh3IiwibmJmIjoxNzA4NzEyNzE0LCJleHAiOjE3MDg3MTYzMTQsImlhdCI6MTcwODcxMjcxNCwiYWlkIjoiM2NSSDd4V01RbkdSclJNb1dYZUdIUSJ9.qVH9H4GbhsYEe4bhiFvdVYafbVMWVZov6gYlx1OVLl1tMjsNrEWvN6Gk2vjoOtr20IhKo8o4PkudzsCFJ56wMw:teOc1MDvDJljHOZ80cCtCCGO4mk25mF8`
         ).toString("base64")}`,
       },
     });
