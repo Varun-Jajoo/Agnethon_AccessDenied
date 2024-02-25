@@ -30,8 +30,8 @@ const HeaderThree = () => {
                 <div className="col-xxl-3 col-xl-3 col-lg-5 col-md-6 col-6">
                   <div className="logo-area d-flex align-items-center">
                     <div className="logo">
-                      <Link href="/">
-                        <img src="assests/images/logo.png" alt="logo" />{/**add logo image here */}
+                      <Link href="/" style={{fontSize:'25px',fontWeight:'900'}}>
+                       Edu Link{/**add logo image here */}
                       </Link>
                     </div>
                     <div className="header-cat-menu ml-40 d-none d-md-block">
