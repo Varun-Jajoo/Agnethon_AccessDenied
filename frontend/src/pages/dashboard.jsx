@@ -1,6 +1,6 @@
 import React from "react";
 import SEO from "../common/seo";
-import WrapperFour from "../layout/wrapper-4";
+import WrapperFour from "../layout/wrapper";
 import { useEffect, useState } from "react";
 import Dashboard from "../components/dashboard/dashboard";
 // import { ChakraProvider,extendTheme ,Box,} from "@chakra-ui/react";
