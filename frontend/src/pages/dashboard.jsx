@@ -37,7 +37,6 @@ const index = () => {
     fetchData();
   }, []);
 
-  
   return (
     <WrapperFour>
       <SEO pageTitle={"Meet"} />
