@@ -2,10 +2,10 @@ const menu_data = [
   {
     id: 1,
     title: "Dashboard",
-    link: "/",
+    link: "/dashboard",
     has_dropdown: true,
     sub_menus: [
-      { link: "/", title: "Admin Dashboard" },//home-3
+      { link: "/dashboard", title: "Admin Dashboard" },//home-3
     
      
     ],
