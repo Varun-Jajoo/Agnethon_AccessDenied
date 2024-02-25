@@ -1,20 +1,31 @@
-import FeatureArea from "@/src/common/feature-area";
-import SuitableArea from "@/src/common/suitable-area";
-import React from "react";
-import Breadcrumb from "../bredcrumb/breadcrumb";
-import CounterArea from "../homes/home-3/counter-area";
-import InstructorArea from "./instructor-area";
-
+'use client'
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 const Instructor = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_vf1924n', 'template_f6l2onx', form.current, {
+        publicKey: 'Imk9sSRKC6LwoUVC7',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
-    <>
-    <Breadcrumb title="Instructor" subtitle="Instructor" />
-      <FeatureArea style_about={true} />
-      <InstructorArea />
-      <SuitableArea style_2={true} />
-      <CounterArea />
-    </>
+    <form ref={form} onSubmit={sendEmail}>
+      <input type="text" name="user_name" />
+      <input style={{marginTop:'200px'}} type="submit" value="Send" />
+    </form>
   );
 };
-
-export default Instructor;
+export default Instructor
