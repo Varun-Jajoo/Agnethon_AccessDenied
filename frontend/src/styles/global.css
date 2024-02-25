@@ -1,0 +1,235 @@
+
+body{
+    background-color: white;
+}
+
+.main-content{
+display: flex;
+flex-direction: column;
+margin: 20px;
+margin-top: 150px;
+}
+
+.main-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-title{
+    text-align: center;
+    margin: 30px 0;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.main{
+    display: flex;
+    padding: 20px 0;
+    gap: 10px;
+    }
+    
+    .icons{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    }
+    
+    .listarea{
+    flex: 3.5;
+    background-color: #f0f0f5;
+    border-radius: 10px;
+    padding: 4px 10px;
+    }
+    
+    .functions{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+    }
+    
+    .icons img{
+        width: 90px;
+    }
+    
+    .img-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: medium;
+        font-weight: 500;
+        padding: 5px 10px;
+        border-radius: 7px;
+    }
+    
+    .func{
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        border-radius: 99px;
+        padding: 7px;
+        gap: 10px;
+    }
+    
+    .func:hover{
+        background-color: #f0f0f5;
+    }
+    
+    .rows{
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        padding-left: 5px;
+    }
+    
+    .scrollable-container {
+        max-height: 350px;
+        overflow-y: auto;
+      }
+    
+      .scrollable-container-contract {
+        max-height: 310px;
+        overflow-y: auto;
+      }
+      
+      .content {
+        overflow: hidden;
+      }
+      
+      .selected-subject{
+          background-color: lightgrey;
+          border-radius: 99px;
+      }
+    
+      .contract-main{
+          padding: 10px;
+      }
+    
+      .contract-logo{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+    
+      .contract-logo img{
+          width: 60px;
+      }
+    
+      .contract-title{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+    
+      .contract-listarea{
+        background-color: #f0f0f5;
+        border-radius: 10px;
+        padding: 4px 10px;
+        flex: 3;
+        height: 350px;
+      }
+    
+      .contract-row{
+        display: flex;
+        align-items: center;
+        margin: 4px 0;
+        padding-left: 5px;
+      }
+      
+      .lesson{
+          display: flex;
+          flex-direction: column;
+        padding-top: 20px;
+        gap: 10px;
+      }
+    
+      .lesson-child {
+        display: flex;
+        align-items: center;
+      }
+      
+      .lesson-child img {
+        width: 80px;
+        height: auto;
+        margin-right: 10px;
+      }
+      
+      .lesson-child input {
+        height: 30px;
+      }
+
+      .aicourse-main {
+        font-size: 2.9rem;
+        font-weight: 600;
+        margin-bottom: 1.2rem;
+        text-align: center;
+        margin-top: -100px;
+      }
+      
+      .aicourse-info{
+          background-color: lightgray;
+          width: 100%;
+          margin: 0 auto;
+          padding: 15px;
+          border-radius: 10px;
+          font-size: 20px;
+      }
+
+      /* .aicourse-inputarea{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin: 10px auto;
+      } */
+      
+      .aicourse-input-title {
+        margin-top: 2rem;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      
+      .aicourse-button {
+        width: 130px;
+        margin: 0.5rem 1.25rem;
+        height: auto;
+        color: white;
+        font-weight: 500;
+      }
+      
+      .aivideo-main {
+        display: flex;
+        flex-direction: row;
+        padding: 2rem;
+        padding-top: 1rem;
+        /* align-items: center; */
+        justify-content: space-between;
+      }
+      
+      .aivideo-contents {
+        /* width: 350px;
+        padding: 25px; */
+        flex: 0.3;
+      }
+      
+      .li-selected {
+        color: green;
+        cursor: pointer;
+      }
+      
+      .aivideo-video {
+        /* padding: 25px; */
+        padding-top: 1rem;
+        flex: 1;
+      }
+      .aivideo-ques {
+        /* padding: 25px; */
+        flex: 1;
+      }
+      

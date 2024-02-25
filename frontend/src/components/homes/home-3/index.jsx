@@ -24,7 +24,6 @@ const HomeThree = () => {
       <OurCourse />
       <ChooseArea />
       <TestimonialArea />
-      
       <BlogArea />
       <CounterArea style_3={true} />
     </>

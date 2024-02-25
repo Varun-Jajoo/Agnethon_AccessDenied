@@ -1,133 +1,174 @@
+"use client";
 import our_course_data from "@/src/data/our-course-data";
 import Link from "next/link";
-import React from "react";
+import React,{useState} from "react";
+import { Input, Button } from "antd";
+import { BsStars } from "react-icons/bs";
+import { useRouter } from 'next/router'
 
 const CourseArea = () => {
+  // <Link href="/course-details">{item.title}</Link>
+  const router = useRouter();
+  const [inputFields, setInputFields] = useState([{ value: "" }]);
+  const [title, setTitle] = useState("");
+  const handleInputChange = (e, id) => {
+    const newInputFields = [...inputFields];
+    newInputFields[id].value = e.target.value;
+    setInputFields(newInputFields);
+  };
+  const handleAddUnit = () => {
+    setInputFields([...inputFields, { value: "" }]);
+  };
+
+  const handleDeleteLastUnit = () => {
+    if (inputFields.length > 1) {
+      const newInputFields = [...inputFields];
+      newInputFields.pop();
+      setInputFields(newInputFields);
+    }
+  };
+
+  const handleGenerate = async () => {
+    console.log("pressed");
+    const response = await fetch("https://api.edenai.run/v2/text/generation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTZhZjY3NzUtNDM0ZC00YzhiLWE5OTMtMzg0YjdhODgyOGYxIiwidHlwZSI6ImFwaV90b2tlbiJ9.-5jwvonLSSasi9EnAzxU-pezBuKFXqBX5Ikbz6Ybo3Q",
+      },
+      body: JSON.stringify({
+        providers: "openai",
+        text: `Generate a list of topics and subtopics under the main parts of ${title}, namely '${inputFields[0].value}' and '${inputFields[1].value}'. The output should be in a well-structured JSON format. Here's an example of the expected output:
+          [
+            {
+              "id": 1,
+              "title": "${inputFields[1].value}",
+              "subtopics": ["...."]
+            },
+            {
+              "id": 2,
+              "title": "${inputFields[1].value}",
+              "subtopics": ["..."]
+            }
+          ]
+          
+          Please fill in the '${title}' with the main topic (${inputFields[0].value} or ${inputFields[1].value}) and 'subtopics' with relevant subtopics under each main topic.`,
+        temperature: 0.2,
+        max_tokens: 500,
+        fallback_providers: "",
+      }),
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    router.push({
+      pathname: '/aivideo',
+      query: { params:data.openai.generated_text },
+    });
+  };
+
   return (
     <>
-      <section className="course-area pb-120">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="section-title text-center mb-65">
-                <span className="tp-sub-title-box mb-15">Our Courses</span>
-                <h2 className="tp-section-title mb-20">
-                  Explore Popular Courses
-                </h2>
-              </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          padding: "2rem",
+          justifyContent: "space-evenly",
+          minHeight: "90vh",
+        }}
+      >
+        <div style={{ width: "50%" }}>
+          <div className="aicourse-main">AI Course Maker</div>
+          <div className="aicourse-info">
+            Enter in a course title, or what you want to learn about. Then enter
+            a list of units, which are the specifics you want to learn. and our
+            AI will generate a course for you!
+          </div>
+          <div className="aicourse-inputarea">
+            <div className="aicourse-input-title">Title</div>
+            <div>
+              <Input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="aicourse-input"
+                placeholder="Enter the main topic of the course (e.g. 'Calculus')"
+              />
             </div>
           </div>
-          <div className="row mb-20">
-            {our_course_data.slice(0, 9).map((item, i) => (
-              <div key={i} className="col-xl-4 col-lg-6 col-md-6">
-                <div
-                  className="tpcourse mb-40 wow fadeInUp"
-                  data-wow-duration=".8s"
-                  data-wow-delay=".2s"
-                >
-                  <div className="tpcourse__thumb p-relative w-img fix">
-                    <Link href="/course-details">
-                      <img src={item.img} alt="course-thumb" />
-                    </Link>
-                    <div className="tpcourse__tag">
-                      <Link href="/course-details">
-                        <i className="fi fi-rr-heart"></i>
-                      </Link>
-                    </div>
-                    <div className="tpcourse__img-icon">
-                      <img src={item.icon} alt="course-avata" />
-                    </div>
-                  </div>
-                  <div className="tpcourse__content-2">
-                    <div className="tpcourse__category mb-10">
-                      <ul className="tpcourse__price-list d-flex align-items-center">
-                        <li>
-                          <Link
-                            className={item.ct_color}
-                            href="/course-details"
-                          >
-                            {item.course_title}
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            className={item.cn_color}
-                            href="/course-details"
-                          >
-                            {item.course_name}
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="tpcourse__ava-title mb-15">
-                      <h4 className="tpcourse__title tp-cours-title-color">
-                        <Link href="/course-details">{item.title}</Link>
-                      </h4>
-                    </div>
-                    <div className="tpcourse__meta tpcourse__meta-gap pb-15 mb-15">
-                      <ul className="d-flex align-items-center">
-                        <li>
-                          <img
-                            src="/assets/img/icon/c-meta-01.png"
-                            alt="meta-icon"
-                          />{" "}
-                          <span>{item.cls_text}</span>
-                        </li>
-                        <li>
-                          <img
-                            src="/assets/img/icon/c-meta-02.png"
-                            alt="meta-icon"
-                          />{" "}
-                          <span>{item.st_text}</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="tpcourse__rating d-flex align-items-center justify-content-between">
-                      <div className="tpcourse__rating-icon">
-                        <span>4.7</span>
-                        <i className="fi fi-ss-star"></i>
-                        <i className="fi fi-ss-star"></i>
-                        <i className="fi fi-ss-star"></i>
-                        <i className="fi fi-ss-star"></i>
-                        <i className="fi fi-rs-star"></i>
-                        <p>(125)</p>
-                      </div>
-                      <div className="tpcourse__pricing">
-                        <h5 className="price-title">$29.99</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          {inputFields.map((input, id) => (
+            <div className="aicourse-inputarea" key={id}>
+              <div className="aicourse-input-title">Unit {id + 1}</div>
+              <div>
+                <Input
+                  value={input.value}
+                  onChange={(e) => handleInputChange(e, id)}
+                  className="aicourse-input"
+                  placeholder="Enter the subtopic topic of the course"
+                />
               </div>
-            ))}
-          </div>
-          <div className="basic-pagination">
-            <nav>
-              <ul>
-                <li>
-                  <Link href="/blog">
-                    <i className="far fa-angle-left"></i>
-                  </Link>
-                </li>
-                <li>
-                  <span className="current">1</span>
-                </li>
-                <li>
-                  <Link href="/blog">2</Link>
-                </li>
-                <li>
-                  <Link href="/blog">3</Link>
-                </li>
-                <li>
-                  <Link href="/blog">
-                    <i className="far fa-angle-right"></i>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            </div>
+          ))}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              paddingTop: "20px",
+            }}
+          >
+            <Button
+              className="aicourse-button"
+              style={{ backgroundColor: "green", paddingTop: "0" }}
+              onClick={handleAddUnit}
+            >
+              Add Unit{" "}
+              <span
+                style={{ color: "", fontSize: "1.15rem", marginLeft: "0.5rem" }}
+              >
+                +
+              </span>
+            </Button>
+            <Button
+              className="aicourse-button"
+              style={{ backgroundColor: "red", paddingTop: "0" }}
+              onClick={handleDeleteLastUnit}
+            >
+              Delete Unit{" "}
+              <span
+                style={{ color: "", fontSize: "1.15rem", marginLeft: "0.5rem" }}
+              >
+                -
+              </span>
+            </Button>
+            <Button
+              onClick={handleGenerate}
+              className="aicourse-button"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "#2234da",
+                padding: "0.35rem",
+              }}
+            >
+              <div>Generate </div>
+              <span
+                style={{ color: "", fontSize: "1.15rem", marginLeft: "0.5rem" }}
+              >
+                <BsStars />
+              </span>
+            </Button>
           </div>
         </div>
-      </section>
+        {/* <div>
+          <img src={svg} style={{ height: "100%", width: "100%" }} alt="" />
+        </div> */}
+      </div>
     </>
   );
 };
