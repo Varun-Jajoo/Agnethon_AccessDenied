@@ -6,6 +6,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid'
+import { Grid, GridItem } from '@chakra-ui/react'
 
 export default function Home() {
   const [events, setEvents] = useState([
@@ -100,6 +101,11 @@ export default function Home() {
       </nav>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="grid grid-cols-10">
+        <Grid
+                templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} // 1 column on small devices, 2 columns on larger devices
+                gap={6} // Gap between grid items
+              >
+        <GridItem colSpan={2}>
           <div className="col-span-8">
             <FullCalendar
               plugins={[
@@ -123,6 +129,8 @@ export default function Home() {
               eventClick={(data) => handleDeleteModal(data)}
             />
           </div>
+          </GridItem>
+          <GridItem colSpan={1}>
           <div id="draggable-el" className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
             <h1 className="font-bold text-lg text-center">Drag Event</h1>
             {events.map(event => (
@@ -135,6 +143,8 @@ export default function Home() {
               </div>
             ))}
           </div>
+          </GridItem>
+          </Grid>
         </div>
 
         <Transition.Root show={showDeleteModal} as={Fragment}>
