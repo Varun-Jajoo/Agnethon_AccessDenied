@@ -2,30 +2,9 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 const Instructor = () => {
-  const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm('service_vf1924n', 'template_f6l2onx', form.current, {
-        publicKey: 'Imk9sSRKC6LwoUVC7',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
-
+ 
   return (
-    <form ref={form} onSubmit={sendEmail}>
-      <input type="text" name="user_name" />
-      <input style={{marginTop:'200px'}} type="submit" value="Send" />
-    </form>
+    <iframe src="http://127.0.0.1:5000" frameborder="0" width="100%" height='700' style={{marginTop:'100px',overflow:"hidden",scrollbarColor:"blue"}}></iframe>
   );
 };
 export default Instructor

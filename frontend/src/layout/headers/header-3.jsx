@@ -31,7 +31,7 @@ const HeaderThree = () => {
                   <div className="logo-area d-flex align-items-center">
                     <div className="logo">
                       <Link href="/">
-                        <img src="" alt="logo" />{/**add logo image here */}
+                        <img src="assests/images/logo.png" alt="logo" />{/**add logo image here */}
                       </Link>
                     </div>
                     <div className="header-cat-menu ml-40 d-none d-md-block">
@@ -39,7 +39,7 @@ const HeaderThree = () => {
                         <ul>
                           <li>
                             <a href="#">
-                              Categorie
+                              Categories
                               <span>
                                 <i className="arrow_carrot-down"></i>
                               </span>
