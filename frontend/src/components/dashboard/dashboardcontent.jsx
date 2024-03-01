@@ -21,12 +21,13 @@ import {
   Divider,
   Container,
 } from "@chakra-ui/react";
+import emailjs from '@emailjs/browser';
 import axios from "axios";
 import { PiStarFourFill } from "react-icons/pi";
 import { FaPaintBrush } from "react-icons/fa";
 import { Progress } from "@chakra-ui/react";
 import { FaChevronRight } from "react-icons/fa6";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 const color2 = "#FF6652";
 const color1 = "#245D51";
 import {
@@ -41,6 +42,7 @@ import {
 } from "recharts";
 import LinkGenerator from "./meetcreation";
 import MiniCalendar from "./calender";
+import { Input } from "antd";
 const data = [
   {
     name: 'Mon',
@@ -85,32 +87,51 @@ const data = [
     amt: 11,
   },
 ];
-const NextClassCard = ({ timeLeft="00:00:00", title="Class Title" }) => {
+const NextClassCard = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_vf1924n', 'template_f6l2onx', form.current, {
+        publicKey: 'Imk9sSRKC6LwoUVC7',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
     <Card borderRadius="lg" overflow="hidden" boxShadow="md" p="4" bg="white">
      <Button leftIcon={<PiStarFourFill  color='#FF6652' />} variant={""}
      size={"xl"}
       fontSize="xl" fontWeight="semibold" mb="4" color="black"
       alignSelf="left"
-      >Next Class In...</Button>
+      >Enter Your file</Button>
      
      
-     <Button
-    variant="outline"
-    borderColor="#FF6652"
-    color="#FF6652"
-    backgroundColor="#FFD8BF"
-    _hover={{ backgroundColor: '#FFBFA7' }}
-    fontWeight="bold"
-    fontSize="14px"
-    borderRadius="20px"
-    px="16px"
-    py="8px"
-    my="10px"
-  >
-   In 16 Days
-  </Button>
-      <Button
+     <input
+    type="file"
+    
+    style={{
+        variant: "outline",
+        borderColor: "#FF6652",
+        color: "#FF6652",
+        backgroundColor: "#FFD8BF",
+        _hover: { backgroundColor: '#FFBFA7' },
+        fontWeight: "bold",
+        fontSize: "14px",
+        borderRadius: "20px",
+        padding: "8px 16px",
+        margin: "10px 0"
+    }}
+/>
+      {/* <Button
         colorScheme="green"
         variant={"outline"}
         rounded={"full"}
@@ -122,10 +143,18 @@ const NextClassCard = ({ timeLeft="00:00:00", title="Class Title" }) => {
         </Text>
         <Divider my="2" />
         <Text></Text>
-      </Button>
-      <Text fontWeight="semibold" fontSize="lg" color="black">29 Jan | 37$ </Text>
-      <Text fontWeight="semibold" fontSize="m"  >In order to have access to your account please pay your monthy fee </Text>
-      <Button rightIcon={<FaChevronRight color={"#245D51"} />} variant={""} alignSelf={'right'} color= {"#245D51"}> View all</Button>
+        <label htmlFor="input" style={{marginTop:"10px"}}>Upload File</label>
+        <input type="file" id="input" style={{marginTop:"10px"}} />
+      </Button> */}
+      {/* <Text fontWeight="semibold" fontSize="lg" color="black">29 Jan | 37$ </Text>
+      <Text fontWeight="semibold" fontSize="m"  >In order to have access to your account please pay your monthy fee </Text> */}
+      <form ref={form} onSubmit={sendEmail}>
+      {/* <input type="text" name="user_name" /> */}
+      <input className="zoom_button" type="submit" value="Send" />
+    </form>
+ {/* <Button bgColor={color1} ref={form} color={"white"} width={"full"} style={{marginTop:"50px"}} onClick={sendEmail}>
+                    Send Email
+                  </Button> */}
     </Card>
   );
 };
@@ -327,7 +356,7 @@ export default function dashboardContent() {
           </Box>
         </GridItem>
         <GridItem w="100%" colSpan={1} height={"100%"}>
-          <NextClassCard timeLeft="5 minutes" />
+          <NextClassCard  />
         </GridItem>
         <GridItem w="100%" colSpan={3}>
           <Box bg="white" borderRadius={10} padding={10} boxShadow="2xl" height="400px" >
